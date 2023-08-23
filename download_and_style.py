@@ -41,7 +41,7 @@ if response.status_code == 200:
             new_post_str = post_str[:start] + link_to_css + post_str[end:]
             new_post_str = fix_hyperlinks(new_post_str)
             # Save then modified HTML to a file
-            with open(post_name, 'w', encoding='utf-8') as file:
+            with open(f"{post_name}.html", 'w', encoding='utf-8') as file:
                 file.write(new_post_str)
             print(f'Styled HTML saved for post: {post_name}')
         else:

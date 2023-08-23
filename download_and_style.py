@@ -1,6 +1,8 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from urllib.parse import urlparse, urljoin
+
 
 base_url = 'https://danluu.com/'
 link_to_css = '<link rel="stylesheet" href="/styles.css">'
@@ -9,7 +11,7 @@ link_to_css = '<link rel="stylesheet" href="/styles.css">'
 def fix_hyperlinks(string):
     # the last line is a quick hack to avoid href ending in /
     # url ending in / don't redirect correctly to .html
-    return string.replace(base_url, '').replace("/>", ">").replace("/ >", ">")
+    return string.replace(base_url, '')
 
 
 # Send an HTTP GET request to fetch the homepage
@@ -27,9 +29,6 @@ if response.status_code == 200:
     # Find all the links to individual posts
     post_links = homepage_soup.find_all('a')
 
-    # Create a directory to store the downloaded posts
-    os.makedirs('downloaded_posts', exist_ok=True)
-
     for post_link in post_links:
         post_name = post_link.get('href').rstrip('/').split('/')[-1]
         post_url = base_url + post_name
@@ -37,13 +36,33 @@ if response.status_code == 200:
         # Send an HTTP GET request to fetch the post
         post_response = requests.get(post_url)
         if post_response.status_code == 200:
+            os.makedirs(post_name, exist_ok=True)
+
             post_str = post_response.content.decode()
             start = post_str.find("<style>")
             end = post_str.find("</style>")
             new_post_str = post_str[:start] + link_to_css + post_str[end:]
             new_post_str = fix_hyperlinks(new_post_str)
+     
+            # Find and donwload image
+            post_soup = BeautifulSoup(new_post_str, 'html.parser')
+            # Find all image tags and download images
+            img_tags = post_soup.find_all('img')
+            if img_tags:
+                os.makedirs(f"images/{post_name}", exist_ok=True)
+            for img_tag in img_tags:
+                img_url = img_tag.get('src')
+                if img_url:
+                    img_url = urljoin(base_url, img_url)
+                    img_response = requests.get(img_url)
+                    if img_response.status_code == 200:
+                        img_filename = os.path.join(f"images/{post_name}", os.path.basename(urlparse(img_url).path))
+                        with open(img_filename, 'wb') as img_file:
+                            img_file.write(img_response.content)
+                        img_tag['src'] = img_filename
+
             # Save then modified HTML to a file
-            with open(f"{post_name}.html", 'w', encoding='utf-8') as file:
+            with open(f"{post_name}/index.html", 'w', encoding='utf-8') as file:
                 file.write(new_post_str)
             print(f'Styled HTML saved for post: {post_name}')
         else:

@@ -29,7 +29,8 @@ if response.status_code == 200:
     os.makedirs('downloaded_posts', exist_ok=True)
 
     for post_link in post_links:
-        post_url = base_url + post_link.get('href').rstrip('/').split('/')[-1]
+        post_name = post_link.get('href').rstrip('/').split('/')[-1]
+        post_url = base_url + post_name
 
         # Send an HTTP GET request to fetch the post
         post_response = requests.get(post_url)
@@ -40,10 +41,9 @@ if response.status_code == 200:
             new_post_str = post_str[:start] + link_to_css + post_str[end:]
             new_post_str = fix_hyperlinks(new_post_str)
             # Save then modified HTML to a file
-            post_title = post_link.get_text()
-            with open(f'{post_title}.html', 'w', encoding='utf-8') as file:
+            with open(f'{post_name}.html', 'w', encoding='utf-8') as file:
                 file.write(new_post_str)
-            print(f'Styled HTML saved for post: {post_title}')
+            print(f'Styled HTML saved for post: {post_name}')
         else:
             print(f'Failed to fetch the post: {post_url}')
 else:

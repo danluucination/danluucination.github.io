@@ -9,7 +9,7 @@ link_to_css = '<link rel="stylesheet" href="/styles.css">'
 def fix_hyperlinks(string):
     # the last line is a quick hack to avoid href ending in /
     # url ending in / don't redirect correctly to .html
-    return string.replace(base_url, '').replace("/>", ">")
+    return string.replace(base_url, '').replace("/>", ">").replace("/ >", ">")
 
 
 # Send an HTTP GET request to fetch the homepage

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>How good are decisions? Evaluating decision quality in domains where evaluation is easy</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="/styles.css"></style><link rel="icon" href="data:;base64,=">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>How good are decisions? Evaluating decision quality in domains where evaluation is easy</title><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/styles.css"></style><link rel="icon" href="data:;base64,=">
 
 </head><body><header><strong>How good are decisions? Evaluating decision quality in domains where evaluation is easy</strong>
 | <a href="https://patreon.com/danluu">Patreon</a><hr></header><main>
@@ -41,29 +41,25 @@
 <p>We can then compute the expected number of runs for all of the other states:</p>
 
 <p><style>table {border-collapse:collapse;margin:0px auto;}table,th,td {border: 1px solid black;}td {text-align:center;}</style>
-<table>
-<tr>
+<table><tr>
 <th></th><th>0</th><th>1</th><th>2</th></tr>
 <tr><th>bases</th><th colspan="3">outs</th></tr>
 <tr>
-<th>--</th><td bgcolor=#f7f7f7><font color=black>.555</font></td><td bgcolor=#d6604d><font color=black>.297</font></td><td bgcolor=#67001f><font color=white>.117</font></td></tr>
+<th>--</th><td bgcolor=#f7f7f7>.555</td><td bgcolor=#d6604d>.297</td><td bgcolor=#67001f><font color=white>.117</font></td></tr>
 <tr>
-<th>1B</th><td bgcolor=#d1e5f0><font color=black>.953</font></td><td bgcolor=#f7f7f7><font color=black>.573</font></td><td bgcolor=#b2182b><font color=black>.251</font></td></tr>
+<th>1B</th><td bgcolor=#d1e5f0>.953</td><td bgcolor=#f7f7f7>.573</td><td bgcolor=#b2182b>.251</td></tr>
 <tr>
-<th>2B</th><td bgcolor=#d1e5f0><font color=black>1.189</font></td><td bgcolor=#f7f7f7><font color=black>.725</font></td><td bgcolor=#d6604d><font color=black>.344</font></td></tr>
+<th>2B</th><td bgcolor=#d1e5f0>1.189</td><td bgcolor=#f7f7f7>.725</td><td bgcolor=#d6604d>.344</td></tr>
 <tr>
-<th>3B</th><td bgcolor=#92c5de><font color=black>1.482</font></td><td bgcolor=#d1e5f0><font color=black>.983</font></td><td bgcolor=#f4a582><font color=black>.387</font></td></tr>
+<th>3B</th><td bgcolor=#92c5de>1.482</td><td bgcolor=#d1e5f0>.983</td><td bgcolor=#f4a582>.387</td></tr>
 <tr>
-<th>1B,2B</th><td bgcolor=#92c5de><font color=black>1.573</font></td><td bgcolor=#d1e5f0><font color=black>.971</font></td><td bgcolor=#f4a582><font color=black>.466</font></td></tr>
+<th>1B,2B</th><td bgcolor=#92c5de>1.573</td><td bgcolor=#d1e5f0>.971</td><td bgcolor=#f4a582>.466</td></tr>
 <tr>
-<th>1B,3B</th><td bgcolor=#4393c3><font color=black>1.904</font></td><td bgcolor=#d1e5f0><font color=black>1.243</font></td><td bgcolor=#fddbc7><font color=black>.538</font></td></tr>
+<th>1B,3B</th><td bgcolor=#4393c3>1.904</td><td bgcolor=#d1e5f0>1.243</td><td bgcolor=#fddbc7>.538</td></tr>
 <tr>
-<th>2B,3B</th><td bgcolor=#2166ac><font color=black>2.052</font></td><td bgcolor=#92c5de><font color=black>1.467</font></td><td bgcolor=#f7f7f7><font color=black>.634</font></td></tr>
+<th>2B,3B</th><td bgcolor=#2166ac>2.052</td><td bgcolor=#92c5de>1.467</td><td bgcolor=#f7f7f7>.634</td></tr>
 <tr>
-<th>1B,2B,3B</th><td bgcolor=#053061><font color=white>2.417</font></td><td bgcolor=#92c5de><font color=black>1.650</font></td><td bgcolor=#f7f7f7><font color=black>.815</font></td></tr>
-<tr>
-</tr>
-</table></p>
+<th>1B,2B,3B</th><td bgcolor=#053061><font color=white>2.417</font></td><td bgcolor=#92c5de>1.650</td><td bgcolor=#f7f7f7>.815</td></tr></table></p>
 
 <p>In this table, each entry is the expected number of runs from the remainder of the inning from some particular state. Each column shows the number of outs and each row shows the state of the bases. The color coding scheme is: the starting state (<code>.555</code> runs) has a white background. States with higher run expectation are more blue and states with lower run expectation are more red.</p>
 
@@ -106,13 +102,10 @@
 <p>If we examine how much teams have improved at the in-game decisions we looked at here, the process has been even slower. It’s still true today that statistics-driven decisions aren’t mainstream. Things are getting better, and if we look at the aggregate cost of the non-optimal decisions mentioned here, the aggregate cost has been getting lower over the past couple decades as intuition-driven decisions slowly converge to more closely match what stats nerds have been saying for decades. For example, if we look at the total number of sac bunts recorded across all teams from 1999 until now, we see:</p>
 
 <div style="overflow-x:auto;">
-<table>
-<tr>
+<table><tr>
 <th>1999</th><th>2000</th><th>2001</th><th>2002</th><th>2003</th><th>2004</th><th>2005</th><th>2006</th><th>2007</th><th>2008</th><th>2009</th><th>2010</th><th>2011</th><th>2012</th><th>2013</th><th>2014</th><th>2015</th><th>2016</th><th>2017</th></tr>
 <tr>
-<td bgcolor=#e31a1c><font color=black>1604</font></td><td bgcolor=#e31a1c><font color=black>1628</font></td><td bgcolor=#e31a1c><font color=black>1607</font></td><td bgcolor=#bd0026><font color=black>1633</font></td><td bgcolor=#e31a1c><font color=black>1626</font></td><td bgcolor=#800026><font color=white>1731</font></td><td bgcolor=#e31a1c><font color=black>1620</font></td><td bgcolor=#bd0026><font color=black>1651</font></td><td bgcolor=#e31a1c><font color=black>1540</font></td><td bgcolor=#fc4e2a><font color=black>1526</font></td><td bgcolor=#bd0026><font color=black>1635</font></td><td bgcolor=#e31a1c><font color=black>1544</font></td><td bgcolor=#bd0026><font color=black>1667</font></td><td bgcolor=#fc4e2a><font color=black>1479</font></td><td bgcolor=#fd8d3c><font color=black>1383</font></td><td bgcolor=#fd8d3c><font color=black>1343</font></td><td bgcolor=#fed976><font color=black>1200</font></td><td bgcolor=#ffffcc><font color=black>1025</font></td><td bgcolor=#ffffcc><font color=black>925</font></td></tr>
-</table>
-</div>
+<td bgcolor=#e31a1c>1604</td><td bgcolor=#e31a1c>1628</td><td bgcolor=#e31a1c>1607</td><td bgcolor=#bd0026>1633</td><td bgcolor=#e31a1c>1626</td><td bgcolor=#800026><font color=white>1731</font></td><td bgcolor=#e31a1c>1620</td><td bgcolor=#bd0026>1651</td><td bgcolor=#e31a1c>1540</td><td bgcolor=#fc4e2a>1526</td><td bgcolor=#bd0026>1635</td><td bgcolor=#e31a1c>1544</td><td bgcolor=#bd0026>1667</td><td bgcolor=#fc4e2a>1479</td><td bgcolor=#fd8d3c>1383</td><td bgcolor=#fd8d3c>1343</td><td bgcolor=#fed976>1200</td><td bgcolor=#ffffcc>1025</td><td bgcolor=#ffffcc>925</td></tr></table></div>
 
 <p>Despite decades of statistical evidence that sac bunts are overused, we didn’t really see a decline across all teams until 2012 or so. Why this is varies on a team-by-team and case-by-case basis, but the fundamental story that’s been repeated over and over again both for statistically-driven team composition and statistically driven in-game decisions is that the people who have the power to make decisions often stick to conventional wisdom instead of using “radical” statistically-driven ideas. There are a number of reasons as to why this happens. One high-level reason is that the change we’re talking about was a cultural change and cultural change is slow. Even as this change was happening and teams that were more data-driven were outperforming relative to their budgets, people anti-data folks ridiculed anyone who was using data. If you were one of the early data folks, you'd have to be <a href="look-stupid/">willing to tolerate a lot of the biggest names in the game calling you stupid, as well as fans, friends, etc.</a>. It doesn’t surprise people when it takes a generation for scientific consensus to shift in the face of this kind of opposition, so why should be baseball be any different?</p>
 
